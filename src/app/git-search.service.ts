@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GitSearch } from "./git-search";
 import { HttpClient } from "@angular/common/http";
-import { resolve } from 'dns';
-import { reject } from 'q';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable({
