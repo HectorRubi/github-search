@@ -1,3 +1,5 @@
+<input type="text" name="query" placeholder="Enter search here" [(ngModel)]="searchQuery">
+<button (click)="gitSearch()">Submit</button>
 <div *ngIf="searchResult; else elseBlock">
   <h3 class="total">Total Results: {{searchResult.total_count}}</h3>
   <ul class="list">
