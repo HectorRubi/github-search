@@ -1,3 +1,4 @@
+<h3>{{title}}</h3>
 <input type="text" name="query" placeholder="Enter search here" [(ngModel)]="searchQuery">
 <button (click)="gitSearch()">Submit</button>
 <div *ngIf="searchResult; else elseBlock">
