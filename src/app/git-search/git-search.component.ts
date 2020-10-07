@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 import { GitSearchService } from "../git-search.service";
 import { GitSearch } from "../git-search";
 
@@ -12,10 +12,20 @@ export class GitSearchComponent implements OnInit {
   searchResult: GitSearch;
   searchQuery: string;
   title: string;
+  displayQuery: string;
 
-  constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute) { }
+  constructor(
+    private GitSearchService: GitSearchService, 
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.searchQuery = params.get('query');
+      this.displayQuery = params.get('query');
+    });
+    
     this.GitSearchService.gitSearch('angular').then((response) => {
       console.log(response);
       this.searchResult = response;
